@@ -1,0 +1,27 @@
+<div id="app-template">
+	<div class="row span5 cols offset3">
+		<h1 class="blackened">Get support now</h1>
+	</div>
+	<div class="row inputs">
+		<div class="span8 cols offset2">
+			<form onsubmit="false">
+				<fieldset>
+					<paper-input label="Full Name" data-field="name"></paper-input>
+					<br />
+					<paper-input label="Valid Email" data-field="email"></paper-input>
+					<br />
+					<paper-input floatingLabel multiline rows="3"
+						label="What can we help you with?" data-field="text"></paper-input>
+
+					<br /><br />
+					<paper-button raisedButton label="Submit Issue" id="submit"></paper-button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div class="row footer span5 cols offset3 blackened">
+		&copy; 2013, powered by <a href="http://erraiframework.org/">Errai</a> and <a href="http://www.polymer-project.org/">Polymer</a>,
+		hosted on <a href="http://openshift.com">OpenShift by Red Hat</a>
+		&raquo; <a href="#" id="admin">Admin</a>
+	</div>
+</div>
