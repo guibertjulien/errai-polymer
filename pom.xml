@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.jboss.errai.demo</groupId>
+  <groupId>org.jboss.errai.polymer</groupId>
   <artifactId>errai-polymer</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>Errai Polymer Tutorial</name>
+  <name>Errai Polymer Web Components</name>
 
   <properties>
     <errai.version>3.0.1.Final</errai.version>
@@ -16,8 +16,8 @@
     <javaee.version>3.0.2.Final</javaee.version>
     <errai.dev.context>${project.artifactId}</errai.dev.context>
     <as.version>7.1.1.Final</as.version>
-    <eap.javaopts> -XX:MaxPermSize=3548M -Dorg.jboss.as.logging.per-deployment=false</eap.javaopts>
-    <errai.jboss.home>/Applications/jbdevstudio/runtimes/jboss-as-7.1.1</errai.jboss.home> 
+    <eap.javaopts> -Dorg.jboss.as.logging.per-deployment=false -XX:MaxPermSize=3548M -Xmx512m</eap.javaopts>
+    <errai.jboss.home>/Applications/jbdevstudio/runtimes/jboss-eap</errai.jboss.home> 
   </properties>
 
   <dependencyManagement>
@@ -178,8 +178,9 @@
           </execution>
         </executions>
         <configuration>
-          <extraJvmArgs>-Xmx712m -XX:CompileThreshold=7000 -XX:MaxPermSize=512M -Derrai.jboss.home=${errai.jboss.home} -Derrai.dev.context=${errai.dev.context} -Derrai.jboss.javaagent.path=${settings.localRepository}/org/jboss/errai/errai-client-local-class-hider/${errai.version}/errai-client-local-class-hider-${errai.version}.jar  -Derrai.jboss.javaopts="${eap.javaopts}"</extraJvmArgs>
+          <extraJvmArgs>-Xmx712m -XX:CompileThreshold=7000 -XX:MaxPermSize=512M -Derrai.jboss.home=${errai.jboss.home} -Derrai.dev.context=${errai.dev.context} -Derrai.jboss.javaagent.path=${settings.localRepository}/org/jboss/errai/errai-client-local-class-hider/${errai.version}/errai-client-local-class-hider-${errai.version}.jar -Derrai.jboss.javaopts="${eap.javaopts}"</extraJvmArgs>
           <logLevel>INFO</logLevel>
+          <strict>true</strict>
           <noServer>false</noServer>
           <server>org.jboss.errai.cdi.server.gwt.JBossLauncher</server>
           <disableCastChecking>true</disableCastChecking>

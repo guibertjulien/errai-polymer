@@ -1,0 +1,36 @@
+<div id="app-template">
+	<div class="row span5 cols offset3">
+		<h1 class="blackened">Get support now</h1>
+	</div>
+	<div class="row inputs">
+		<div class="span8 cols offset2">
+			<form onsubmit="false">
+				<fieldset>
+					<paper-input type="text" label="Full Name" id="name" validate="^[a-zA-Z\s]*$"></paper-input>
+					<br />
+					<paper-input type="email" label="Valid Email" id="email" validate="^[a-zA-Z_]+[.]?[a-zA-Z_]@{1}[a-zA-Z]+[.]{1}[a-zA-Z]{3}$"></paper-input>
+					<br />
+					<paper-input type="text" multiline
+						label="What can we help you with?" id="text"></paper-input>
+						
+					<br/><br/>
+					<paper-checkbox label="Interested In Errai Polymer ?" id="done"></paper-checkbox>
+					
+					<br /><br />
+					<div left vertical layout>
+						<div flex>Priority</div>
+						<paper-radio-group id="radioGrp"></paper-radio-group>
+					</div>
+
+					<br /><br />
+					<paper-button raisedButton label="Submit Issue" id="submit"></paper-button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div class="row footer span5 cols offset3 blackened">
+		&copy; 2014, powered by <a href="http://erraiframework.org/">Errai</a> and <a href="http://www.polymer-project.org/">Polymer</a>.
+		Checkout <a href="https://github.com/chalu/errai-polymer">errai-polymer on github</a>
+		&raquo; <a href="#" id="admin">Admin</a>
+	</div>
+</div>

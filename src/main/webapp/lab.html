@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Errai Polymer Tutorial</title>
+
+<meta name="viewport"
+	content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+<!-- 1. Load platform.js for polyfill support. -->
+<script src="bower_components/platform/platform.js"></script>
+
+<!-- 2. Use an HTML Import to bring in the element. -->
+<link rel="import" href="bower_components/font-roboto/roboto.html">
+<link rel="import"
+	href="bower_components/core-header-panel/core-header-panel.html">
+<link rel="import"
+	href="bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="bower_components/core-icons/core-icons.html">
+<link rel="import"
+	href="bower_components/paper-button/paper-button.html">
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import"
+	href="bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import"
+	href="bower_components/paper-radio-group/paper-radio-group.html">
+
+<style>
+html, body {
+	height: 100%;
+	margin: 0;
+	background-color: #E5E5E5;
+	font-family: 'RobotoDraft', sans-serif;
+}
+
+core-header-panel {
+	height: 100%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+core-toolbar {
+	background: #03a9f4;
+	color: white;
+}
+
+.container {
+	width: 80%;
+	margin: 50px auto;
+}
+
+@media ( max-width : 481px) {
+	.container {
+		width: 400px;
+	}
+}
+</style>
+
+<!-- <script type="text/javascript" src="app/app.nocache.js"></script> -->
+</head>
+
+<body unresolved touch-action="auto">
+
+	<core-header-panel> <core-toolbar> </core-toolbar>
+
+	<div class="container" id="console" layout vertical center>
+		<div id="app-template">
+			<div class="row span5 cols offset3">
+				<h1 class="blackened">Get support now</h1>
+			</div>
+			<div class="row inputs">
+				<div class="span8 cols offset2">
+					<form onsubmit="false">
+						<fieldset>
+							<paper-input type="text" validate="^[a-zA-Z\s]*$" label="Full Name" id="name"></paper-input>
+							<br />
+							<paper-input type="email" label="Valid Email" id="email" validate="^[a-zA-Z_]+[.]?[a-zA-Z_]@{1}[a-zA-Z]+[.]{1}[a-zA-Z]{3}$"></paper-input>
+							<br />
+							<paper-input floatingLabel multiline rows="3"
+								label="What can we help you with?" id="text"></paper-input>
+
+							<br>
+							<paper-checkbox label="Are U Ready" id="ready"></paper-checkbox>
+
+							<paper-checkbox checked label="Using Polymer ?" id="polymer"></paper-checkbox>
+
+							<br />
+							<br />
+							<paper-radio-group selected="small" id="rgrp" multi> <paper-radio-button
+								name="small" label="Small"></paper-radio-button> <paper-radio-button
+								name="medium" label="Medium"></paper-radio-button> <paper-radio-button
+								name="large" label="Large"></paper-radio-button> </paper-radio-group>
+
+							<br />
+							<br />
+							<paper-button raisedButton label="Submit Issue" id="submit"></paper-button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<div class="row footer span5 cols offset3 blackened">
+				&copy; 2013, powered by <a href="http://erraiframework.org/">Errai</a>
+				and <a href="http://www.polymer-project.org/">Polymer</a>, hosted on
+				<a href="http://openshift.com">OpenShift by Red Hat</a> &raquo; <a
+					href="#" id="admin">Admin</a>
+			</div>
+		</div>
+
+	</div>
+
+	</core-header-panel>
+	<script type="text/javascript">
+		var doc = document;
+		doc.getElementById("name").addEventListener("change", function(e){
+			var val = (this["value"] == null) ? null : String(this["value"]);
+			console.log(val);
+		});
+	</script>
+
+</body>
+</html>
