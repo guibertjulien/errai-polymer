@@ -45,10 +45,6 @@ public abstract class CheckablePaperItem extends FocusWidget implements HasValue
 		});
 	}
 
-	public final native void log(String msg) /*-{
-		$wnd.console.info(msg);
-	}-*/;
-
 	/**
 	 * Determines whether this toggle button is currently checked.
 	 * 

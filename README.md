@@ -11,11 +11,11 @@ Polymer's paper elements collection implements material design for the web. They
 
 Errai
 ------
-In Errai, we use standard HTML and CSS for UI layout. Take an HTML file directly from your designer or brand team and use it in your application. No need to battle merge conflicts when bringing in design changes. The HTML files just serve as templates. All client-side logic is in companion Java classes that provide access to the fields in the templates. Check out this simple HTML form for filing complaints.
+In Errai, we use standard HTML and CSS for UI layout. Take an HTML file directly from your designer or brand team and use it in your application. No need to battle merge conflicts when bringing in design changes. The HTML files just serve as templates. All client-side logic is in companion Java classes that provide access to the fields in the HTML templates.
 
 Errai brings Java EE to the browser. Leveraging the GWT compiler, Errai enables you to reuse existing Java EE code on the client. Simply persist your entities into the browser's local storage using JPA and keep them in sync with the server using Errai data sync module. Observe and fire CDI events on the client and exchange events between the client and server.
 
-Construct type safe REST calls using JAX-RS annotations on shared interfaces. Errai handles the required communication and serialization logic.
+With Errai, you construct type safe REST calls using JAX-RS annotations on shared interfaces and Errai handles the required communication and serialization logic for you.
 
 Errai-Polymer
 =============

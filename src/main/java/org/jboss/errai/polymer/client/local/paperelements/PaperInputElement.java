@@ -26,7 +26,7 @@ public class PaperInputElement extends CoreInputElement {
 	}-*/;
 
 	public final native void setLabel(String lbl) /*-{
-		this.lebel = lbl;
+		this.label = lbl;
 	}-*/;
 
 	public final native int getMaxRows() /*-{

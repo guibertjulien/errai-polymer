@@ -119,6 +119,7 @@ input,textarea {
 	position: static;
 }
 
+
 @media (max-width: 767px) {
     html {
         background: #4d3b29 url("../images/background-mobile.jpg") top;

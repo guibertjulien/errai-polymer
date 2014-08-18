@@ -10,7 +10,7 @@ public class PaperInput extends CoreInput {
 	public static final String STYLE = "errai-paper-input"; 
 	
 	public PaperInput() {
-		this(Document.get().createElement(PaperInputElement.TAG), "errai-paper-input");
+		this(Document.get().createElement(PaperInputElement.TAG), STYLE);
 	}
 
 	public PaperInput(Element element, String styleName) {

@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import org.jboss.errai.databinding.client.api.DataBinder;
 import org.jboss.errai.databinding.client.api.PropertyChangeEvent;
 import org.jboss.errai.databinding.client.api.PropertyChangeHandler;
+import org.jboss.errai.polymer.client.local.paperelements.PaperCheckBox;
 import org.jboss.errai.polymer.client.shared.UserComplaint;
 import org.jboss.errai.ui.client.widget.HasModel;
 import org.jboss.errai.ui.client.widget.ValueImage;
@@ -15,6 +16,7 @@ import org.jboss.errai.ui.shared.api.annotations.AutoBound;
 import org.jboss.errai.ui.shared.api.annotations.Bound;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
+import org.slf4j.Logger;
 
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
@@ -40,6 +42,9 @@ public class ComplaintListItemWidget extends Composite implements
 	@AutoBound
 	private DataBinder<UserComplaint> userComplaint;
 
+	@Inject
+	private Logger logger;
+
 	// You can also choose to instantiate your own widgets. Injection is not
 	// required. In case of Element, direct injection is not supported.
 	@Bound
@@ -49,7 +54,7 @@ public class ComplaintListItemWidget extends Composite implements
 	@Inject
 	@Bound
 	@DataField
-	private CheckBox done;
+	private PaperCheckBox done;
 
 	@Bound
 	@DataField
@@ -68,9 +73,9 @@ public class ComplaintListItemWidget extends Composite implements
 	@DataField
 	private ValueImage image;
 
-	@Bound
-	@DataField
-	private final Element version = DOM.createTD();
+//	@Bound
+//	@DataField
+//	private final Element version = DOM.createTD();
 
 	/**
 	 * Errai's JPA module allows persisting objects into the browser's offline
@@ -84,22 +89,20 @@ public class ComplaintListItemWidget extends Composite implements
 
 	@PostConstruct
 	private void init() {
-		// We attach a property change handler to get notified when the user
-		// clicks
-		// the done checkbox. We can attach the handler to the model directly
-		// because it is automatically kept in sync by Errai's data binder.
-		// userComplaint.addPropertyChangeHandler("done", new
-		// PropertyChangeHandler<Boolean>() {
-		// @Override
-		// public void onPropertyChange(PropertyChangeEvent<Boolean> event) {
-		// // Update the style to reflect the change.
-		// updateDoneStyle();
-		// // Persist the changed state into the browsers offline storage.
-		// em.merge(getModel());
-		// // Attempt to synchronize the change with the server.
-		// app.sync();
-		// }
-		// });
+		// We attach a property change handler to get notified when the user clicks
+	    // the done checkbox. We can attach the handler to the model directly
+	    // because it is automatically kept in sync by Errai's data binder.
+	    userComplaint.addPropertyChangeHandler("done", new PropertyChangeHandler<Boolean>() {
+	      @Override
+	      public void onPropertyChange(PropertyChangeEvent<Boolean> evt) {
+	        // Update the style to reflect the change.
+	        updateDoneStyle();
+	        // Persist the changed state into the browsers offline storage.
+	        em.merge(getModel());
+	        // Attempt to synchronize the change with the server.
+	        app.sync();
+	      }
+	    });
 	}
 
 	@Override
